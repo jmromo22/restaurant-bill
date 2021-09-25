@@ -1,0 +1,9 @@
+first create an array so it can hold the prices for each item
+second create another array so it can hold the string names of each item
+you then will need to request the percent sale tax
+then request percent tip
+after you would want to calculate the sale taxes 
+once this is set up you can start calculating the tip with the price and the included taxes
+after you want to print out the tax value
+then print out tip value 
+lastly you should print out the total value
