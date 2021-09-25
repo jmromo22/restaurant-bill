@@ -10,9 +10,28 @@ int main(){
     srand((unsigned) time(&t));
     // declare file 
     FILE *file;
+
     //set static maxNumber
     static int maxNumber = 10;
-    // select guessNumber to be random
+    // create string array of size 10 char
+    char buff [10];
+    // open file name "numbergame.txt"
+    file = fopen("numbergame.txt", "r");
+    if(file == NULL){
+        //file does not exist, keep Maxnumber
+        maxNumber = maxNumber;
+
+    }
+    else{
+        //if file exist then read the first input on file
+        fgets(buff,10, file);
+        maxNumber = buff[0];
+        //close file
+        fclose(file);
+
+    }
+
+      // select guessNumber to be random
     int guessNumber = rand() % maxNumber; 
     // print out choice menu 
     printf("Press 1 to play a game\nPress 2 to change the max number\nPress 3 to quit\n");
@@ -27,7 +46,7 @@ int main(){
         printf("Pick a number between 1 and %d. ", maxNumber); 
         scanf("%s", &userguess);
         if(strcmp("q", userguess) == 0){
-
+//if q is enter return to menu
             main();
         } 
         else{
@@ -75,7 +94,13 @@ int main(){
         if(tempnumber>0 && tempnumber< highestnumber){
             // replace max number with the temp integer 
             maxNumber = tempnumber; 
-            // send message declaring new max number is made 
+
+            FILE *file;
+            file = fopen("numbergame.txt", "w");
+            putw(maxNumber,file);
+            fclose(file);
+
+             // send message declaring new max number is made 
             printf("\nThe New Max Number is %d\n", maxNumber); 
             // use another recursive call 
             main();
@@ -83,10 +108,9 @@ int main(){
         else{
             // number input was not within the parameters, so it returns 
             printf("Number does not meet the parameters! The Max Number will stay as %d",maxNumber);
-            // return to menu, use recursive call 
-            main(); 
+            // return to menu, use recursive 
+            main();
         }
-        
     }
     // if input is 3, exit the program 
     else if(userInput == 3){
