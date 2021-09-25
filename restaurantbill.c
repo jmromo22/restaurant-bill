@@ -25,17 +25,23 @@ srand((unsigned) time(&t));
 // multiply price of food item by sales tax percentage
     double taxCost = prices[i] * salesTaxPercentage/100;
 // multiply price of the food item by sales tax percentage
-    double taxTotal = (prices[i] * (1+(salesTaxPercentage/100)));
+    double taxTotal = (prices[i] + taxCost);
 //multiply tax total by tip percentage
     double tipCost = (taxTotal * tipPercentage/100); 
 //taxtotal + tipcost 
     double actualTotal = (taxTotal) * (1+(tipPercentage/100));
+    //print food item
+    printf("Food item is %s.\n", foods[i]);
+    //print food cost
+     printf("This food item cost $%.2f.\n", prices[i]);
     // print tax cost 
-    printf("The tax cost will be $%.2f\n", taxCost);
+    printf("The tax cost will be $%.2f.\n", taxCost);
     // print tip cost
-    printf("The tip cost will be $%.2f\n", tipCost); 
+    printf("The tip cost will be $%.2f.\n", tipCost); 
+    
+   
 //print food type, price, and total including tax, and tip 
-    printf("The total cost for %s, at $%.2f, including tax and tip will be %.2f", foods[i], prices[i], actualTotal); 
+    printf("The total cost, including tax and tip will be %.2f.", actualTotal); 
     return 0; 
 
 
