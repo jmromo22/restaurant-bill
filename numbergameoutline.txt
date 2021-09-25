@@ -1,0 +1,6 @@
+first you want to create the menu options for the user
+you then have to request the response from user as a integer 
+after request the user to input a number between 0 
+if that string is equal to "q" then call recursive to main()
+if that string is not equal to "q" it will thren convert from a string into integer
+Enter while statement as long as the integer is not equal to the machine picked integer
